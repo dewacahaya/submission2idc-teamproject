@@ -544,12 +544,15 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
-.text-3xl {
-  font-size: 1.875rem;
-  line-height: 2.25rem;
+.font-poppins {
+  font-family: Poppins;
 }
 
-.text-cyan-300 {
-  --tw-text-opacity: 1;
-  color: rgb(103 232 249 / var(--tw-text-opacity));
+.text-9xl {
+  font-size: 8rem;
+  line-height: 1;
+}
+
+.font-extrabold {
+  font-weight: 800;
 }
