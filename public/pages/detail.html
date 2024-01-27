@@ -4,15 +4,169 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NowFilms</title>
-    <link rel="stylesheet" href="style/output.css" />
+    <link rel="stylesheet" href="/public/style/output.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <style>
+      html {
+        background-color: #000000;
+      }
+    </style>
   </head>
   <body>
+    <!-- NAVBAR START -->
+    <header class="absolute top-0 left-0 w-full flex items-center z-50">
+      <div class="container">
+        <div class="flex items-center justify-between relative">
+          <div class="px-4">
+            <a href="#" class="font-bold text-3xl block py-4"
+              ><img
+                src="/public/assets/icon/logo.svg"
+                class="w-16 lg:w-24"
+                alt=""
+            /></a>
+          </div>
+          <div class="flex items-center px-4">
+            <button
+              id="menus"
+              name="menus"
+              type="button"
+              class="block absolute right-4 lg:hidden"
+            >
+              <span
+                class="menus-line transition duration-300 ease-in-out origin-top-left"
+              ></span>
+              <span
+                class="menus-line transition duration-300 ease-in-out"
+              ></span>
+              <span
+                class="menus-line transition duration-300 ease-in-out origin-bottom-left"
+              ></span>
+            </button>
+
+            <nav
+              id="nav-menu"
+              class="hidden absolute py-5 z-50 font-poppins font-semibold bg-red-800 shadow-lg rounded-lg max-w-[250px] w-full right-4 top-full lg:flex lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none"
+            >
+              <div class="lg:mx-8 lg:h-8">
+                <input
+                  type="search"
+                  class="mx-auto font-thin px-5 py-1 my-2 flex rounded-xl items-center"
+                  name=""
+                  id=""
+                  placeholder="Search"
+                />
+              </div>
+              <ul class="block lg:flex">
+                <li>
+                  <a
+                    href="#"
+                    class="text-base text-fontwhite-0 py-2 mx-8 flex hover:text-black lg:hover:text-red-500"
+                    >Home</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="text-base text-fontwhite-0 py-2 mx-8 flex hover:text-black lg:hover:text-red-500"
+                    >Movies</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="text-base text-fontwhite-0 py-2 mx-8 flex hover:text-black lg:hover:text-red-500"
+                    >Series</a
+                  >
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- NAVBAR END -->
+
+    <!-- CONTENT START -->
+    <main>
+      <section class="pt-24 lg:pt-[132px] lg:container">
+        <div class="block bg-[#3D3F43] pb-2 mb-5">
+          <!-- Top Title -->
+          <div class="w-full self-center">
+            <div
+              class="bg-[#17191F] text-center font-poppins font-semibold p-2 mb-2"
+            >
+              <span class="text-fontwhite-0">Title</span>
+            </div>
+          </div>
+          <!-- Top Title -->
+
+          <div class="lg:flex">
+            <!-- IMG -->
+            <div class="w-full self-center py-4 px-4 lg:w-1/4">
+              <div
+                class="w-[170px] h-[220px] mx-auto flex mb-2 lg:w-[270px] lg:h-[340px]"
+              >
+                <img
+                  src="https://cdn-images-1.medium.com/max/2000/1*YRINRZFr0E1FRJ4JpizEMw.jpeg"
+                  class="min-h-0 rounded-md shadow-md"
+                  alt=""
+                />
+              </div>
+            </div>
+            <!-- IMG -->
+
+            <div class="w-full self-center lg:w-10/12">
+              <div
+                class="px-4 py-4 font-poppins font-medium text-base text-fontwhite-0 lg:text-xl"
+              >
+                <p>Title : <span id="filmtitle">JUDUL</span></p>
+                <p>Release : <span id="filmrelease">RILIS</span></p>
+                <p>Duration : <span id="filmduration">DURASI</span></p>
+                <p>Genre : <span id="filmgenre">GENRE</span></p>
+                <p>Director : <span id="filmdirector">DIRECTOR</span></p>
+                <p>Writer : <span id="filmwriter">PENULIS</span></p>
+                <p>Casts : <span id="filmcasts">PEMERAN</span></p>
+                <p class="mb-3">Language : <span id="filmlang">BAHASA</span></p>
+                <div class="text-black">
+                  <p
+                    class="py-4 px-[18px] w-1/2 rounded-full bg-[#F8B319] cursor-pointer hover:shadow-lg hover:bg-orange-500 transition duration-300 ease-in-out lg:w-1/6 lg:text-sm lg:font-light lg:px-10 lg:py-2"
+                  >
+                    Watch Now
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex w-full">
+            <div class="font-poppins text-base text-fontwhite-0 lg:text-lg">
+              <p id="filmdesc" class="text-justify px-4 py-4">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
+                inventore incidunt necessitatibus quidem illo vero consequuntur
+                modi dolorum voluptas harum sapiente vel mollitia reprehenderit,
+                nisi perferendis quas excepturi perspiciatis obcaecati soluta
+                corporis ex dolores nesciunt consectetur nihil. Dolore quis
+                aspernatur cum quos earum? Quas asperiores similique alias
+                obcaecati quos culpa.
+              </p>
+              <div class="flex justify-center px-4 py-4 mb-2">
+                <a
+                  id="rating"
+                  class="text-base font-medium text-slate-950 bg-[#F8B319] px-12 py-3 rounded-full hover:shadow-lg hover:bg-orange-500 transition duration-300 ease-in-out lg:px-20 lg:py-3"
+                  >Rate</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- CONTENT END -->
+
     <!-- JS -->
     <script src="/public/scripts/style.js"></script>
     <!-- JS -->
