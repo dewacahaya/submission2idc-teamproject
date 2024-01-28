@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NowFilms</title>
+    <link rel="icon" href="/public/assets/icon/iconweb.svg" />
     <link rel="stylesheet" href="/public/style/output.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -94,7 +95,7 @@
     <!-- CONTENT START -->
     <main>
       <section class="pt-24 lg:pt-[132px] lg:container">
-        <div class="block bg-[#3D3F43] pb-2 mb-5">
+        <div class="block pb-2 mb-5">
           <!-- Top Title -->
           <div class="w-full self-center">
             <div
@@ -107,8 +108,9 @@
 
           <div class="lg:flex">
             <!-- IMG -->
-            <div class="w-full self-center py-4 px-4 lg:w-1/4">
+            <div class="w-full self-center py-4 px-4 lg:w-1/3">
               <div
+                id="detail-image"
                 class="w-[170px] h-[220px] mx-auto flex mb-2 lg:w-[270px] lg:h-[340px]"
               >
                 <img
@@ -122,7 +124,7 @@
 
             <div class="w-full self-center lg:w-10/12">
               <div
-                class="px-4 py-4 font-poppins font-medium text-base text-fontwhite-0 lg:text-xl"
+                class="px-4 py-4 font-poppins font-medium text-base text-fontwhite-0 lg:text-xl md:w-1/4"
               >
                 <p>Title : <span id="filmtitle">JUDUL</span></p>
                 <p>Release : <span id="filmrelease">RILIS</span></p>
@@ -132,12 +134,12 @@
                 <p>Writer : <span id="filmwriter">PENULIS</span></p>
                 <p>Casts : <span id="filmcasts">PEMERAN</span></p>
                 <p class="mb-3">Language : <span id="filmlang">BAHASA</span></p>
-                <div class="text-black">
-                  <p
-                    class="py-4 px-[18px] w-1/2 rounded-full bg-[#F8B319] cursor-pointer hover:shadow-lg hover:bg-orange-500 transition duration-300 ease-in-out lg:w-1/6 lg:text-sm lg:font-light lg:px-10 lg:py-2"
+                <div class="flex justify-center px-4 py-4 mb-2">
+                  <a
+                    id="rating"
+                    class="text-base font-medium text-slate-950 bg-[#F8B319] px-12 py-3 rounded-full hover:shadow-lg hover:bg-orange-500 transition duration-300 ease-in-out lg:px-20 lg:py-3"
+                    >Watch Now</a
                   >
-                    Watch Now
-                  </p>
                 </div>
               </div>
             </div>
@@ -166,6 +168,233 @@
       </section>
     </main>
     <!-- CONTENT END -->
+
+    <section>
+      <div class="lg:container px-4 font-poppins">
+        <div class="flex">
+          <p class="text-white font-medium pb-4 lg:text-lg">Recomendation</p>
+        </div>
+        <div class="lg:container block justify-center py-4 px-4 lg:flex">
+          <!-- FILM Post -->
+          <div class="w-full self-center py-4 px-4 lg:w-1/3">
+            <div
+              id="recomen-film"
+              class="w-[170px] h-[220px] mx-auto flex mb-2 lg:w-[240px] lg:h-[330px]"
+            >
+              <img
+                src="https://cdn-images-1.medium.com/max/2000/1*YRINRZFr0E1FRJ4JpizEMw.jpeg"
+                class="min-h-0 rounded-md shadow-md"
+                alt=""
+              />
+            </div>
+
+            <div>
+              <span
+                id="title-film"
+                class="flex justify-center text-white lg:text-xl"
+                >Judul</span
+              >
+              <span class="flex justify-center text-xs text-white lg:text-sm">
+                <p id="year-film">Tahun |</p>
+                <p id="genre-film">| Genre</p>
+              </span>
+            </div>
+          </div>
+          <!-- FILM Post -->
+          <!-- FILM Post -->
+          <div class="w-full self-center py-4 px-4 lg:w-1/3">
+            <div
+              id="recomen-film"
+              class="w-[170px] h-[220px] mx-auto flex mb-2 lg:w-[240px] lg:h-[330px]"
+            >
+              <img
+                src="https://cdn-images-1.medium.com/max/2000/1*YRINRZFr0E1FRJ4JpizEMw.jpeg"
+                class="min-h-0 rounded-md shadow-md"
+                alt=""
+              />
+            </div>
+
+            <div>
+              <span
+                id="title-film"
+                class="flex justify-center text-white lg:text-xl"
+                >Judul</span
+              >
+              <span class="flex justify-center text-xs text-white lg:text-sm">
+                <p id="year-film">Tahun |</p>
+                <p id="genre-film">| Genre</p>
+              </span>
+            </div>
+          </div>
+          <!-- FILM Post -->
+          <!-- FILM Post -->
+          <div class="w-full self-center py-4 px-4 lg:w-1/3">
+            <div
+              id="recomen-film"
+              class="w-[170px] h-[220px] mx-auto flex mb-2 lg:w-[240px] lg:h-[330px]"
+            >
+              <img
+                src="https://cdn-images-1.medium.com/max/2000/1*YRINRZFr0E1FRJ4JpizEMw.jpeg"
+                class="min-h-0 rounded-md shadow-md"
+                alt=""
+              />
+            </div>
+
+            <div>
+              <span
+                id="title-film"
+                class="flex justify-center text-white lg:text-xl"
+                >Judul</span
+              >
+              <span class="flex justify-center text-xs text-white lg:text-sm">
+                <p id="year-film">Tahun |</p>
+                <p id="genre-film">| Genre</p>
+              </span>
+            </div>
+          </div>
+          <!-- FILM Post -->
+          <!-- FILM Post -->
+          <div class="w-full self-center py-4 px-4 lg:w-1/3">
+            <div
+              id="recomen-film"
+              class="w-[170px] h-[220px] mx-auto flex mb-2 lg:w-[240px] lg:h-[330px]"
+            >
+              <img
+                src="https://cdn-images-1.medium.com/max/2000/1*YRINRZFr0E1FRJ4JpizEMw.jpeg"
+                class="min-h-0 rounded-md shadow-md"
+                alt=""
+              />
+            </div>
+
+            <div>
+              <span
+                id="title-film"
+                class="flex justify-center text-white lg:text-xl"
+                >Judul</span
+              >
+              <span class="flex justify-center text-xs text-white lg:text-sm">
+                <p id="year-film">Tahun |</p>
+                <p id="genre-film">| Genre</p>
+              </span>
+            </div>
+          </div>
+          <!-- FILM Post -->
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="lg:container px-4 font-poppins">
+        <div class="flex">
+          <p class="text-white font-medium pb-4 lg:text-lg">Recomendation</p>
+        </div>
+        <div class="lg:container block justify-center py-4 px-4 lg:flex">
+          <!-- FILM Post -->
+          <div class="w-full self-center py-4 px-4 lg:w-1/3">
+            <div
+              id="recomen-film"
+              class="w-[170px] h-[220px] mx-auto flex mb-2 lg:w-[240px] lg:h-[330px]"
+            >
+              <img
+                src="https://cdn-images-1.medium.com/max/2000/1*YRINRZFr0E1FRJ4JpizEMw.jpeg"
+                class="min-h-0 rounded-md shadow-md"
+                alt=""
+              />
+            </div>
+
+            <div>
+              <span
+                id="title-film"
+                class="flex justify-center text-white lg:text-xl"
+                >Judul</span
+              >
+              <span class="flex justify-center text-xs text-white lg:text-sm">
+                <p id="year-film">Tahun |</p>
+                <p id="genre-film">| Genre</p>
+              </span>
+            </div>
+          </div>
+          <!-- FILM Post -->
+          <!-- FILM Post -->
+          <div class="w-full self-center py-4 px-4 lg:w-1/3">
+            <div
+              id="recomen-film"
+              class="w-[170px] h-[220px] mx-auto flex mb-2 lg:w-[240px] lg:h-[330px]"
+            >
+              <img
+                src="https://cdn-images-1.medium.com/max/2000/1*YRINRZFr0E1FRJ4JpizEMw.jpeg"
+                class="min-h-0 rounded-md shadow-md"
+                alt=""
+              />
+            </div>
+
+            <div>
+              <span
+                id="title-film"
+                class="flex justify-center text-white lg:text-xl"
+                >Judul</span
+              >
+              <span class="flex justify-center text-xs text-white lg:text-sm">
+                <p id="year-film">Tahun |</p>
+                <p id="genre-film">| Genre</p>
+              </span>
+            </div>
+          </div>
+          <!-- FILM Post -->
+          <!-- FILM Post -->
+          <div class="w-full self-center py-4 px-4 lg:w-1/3">
+            <div
+              id="recomen-film"
+              class="w-[170px] h-[220px] mx-auto flex mb-2 lg:w-[240px] lg:h-[330px]"
+            >
+              <img
+                src="https://cdn-images-1.medium.com/max/2000/1*YRINRZFr0E1FRJ4JpizEMw.jpeg"
+                class="min-h-0 rounded-md shadow-md"
+                alt=""
+              />
+            </div>
+
+            <div>
+              <span
+                id="title-film"
+                class="flex justify-center text-white lg:text-xl"
+                >Judul</span
+              >
+              <span class="flex justify-center text-xs text-white lg:text-sm">
+                <p id="year-film">Tahun |</p>
+                <p id="genre-film">| Genre</p>
+              </span>
+            </div>
+          </div>
+          <!-- FILM Post -->
+          <!-- FILM Post -->
+          <div class="w-full self-center py-4 px-4 lg:w-1/3">
+            <div
+              id="recomen-film"
+              class="w-[170px] h-[220px] mx-auto flex mb-2 lg:w-[240px] lg:h-[330px]"
+            >
+              <img
+                src="https://cdn-images-1.medium.com/max/2000/1*YRINRZFr0E1FRJ4JpizEMw.jpeg"
+                class="min-h-0 rounded-md shadow-md"
+                alt=""
+              />
+            </div>
+
+            <div>
+              <span
+                id="title-film"
+                class="flex justify-center text-white lg:text-xl"
+                >Judul</span
+              >
+              <span class="flex justify-center text-xs text-white lg:text-sm">
+                <p id="year-film">Tahun |</p>
+                <p id="genre-film">| Genre</p>
+              </span>
+            </div>
+          </div>
+          <!-- FILM Post -->
+        </div>
+      </div>
+    </section>
 
     <!-- JS -->
     <script src="/public/scripts/style.js"></script>
