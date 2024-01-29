@@ -1,3 +1,15 @@
+// NAVBAR
+window.onscroll = function() {
+    const header = document.querySelector('header')
+    const navFix = header.offsetTop
+
+    if(window.pageYOffset > navFix) {
+        header.classList.add('fixed-navbar')
+    } else {
+        header.classList.remove('fixed-navbar')
+    }
+}
+
 const Menus = document.querySelector('#menus');
 const navMenu = document.querySelector('#nav-menu')
 
