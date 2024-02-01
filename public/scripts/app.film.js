@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     if(!film) return;
 
     filmDetailElement.innerHTML = generateFilmDetail({
-      cover: film.cover,
       title: film.title,
       year: film.year,
       description: film.description,
