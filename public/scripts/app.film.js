@@ -43,11 +43,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         /**
          * Buat pembungkus nya
          */
-        const containerFilm = generateElement({
-            tag: "div",
-            id: "list_film",
-            className: "lg:container block justify-center py-4 px-4 md:flex"
-        });
 
         const containerCard = generateElement({
           tag: "div",
@@ -78,31 +73,32 @@ document.addEventListener("DOMContentLoaded", async () => {
         // Masukan judul dan tahun rilis ke dalam pembungkus nya
         containerTitle.appendChild(...[title, year]);
 
-
         const cover = generateElement({
-            tag: "a",
-            href: "/public/pages/detail.html",
+          tag: "a",
+          href: "/public/pages/detail.html",
         });
 
         const containerImage = generateElement({
-            tag: "div",
-            id: "recomen-film",
-            className: "w-[170px] h-[220px] mx-auto flex mb-2 lg:w-[240px] lg:h-[330px]",
+          tag: "div",
+          id: "recomen-film",
+          className:
+            "w-[170px] h-[220px] mx-auto flex mb-2 lg:w-[240px] lg:h-[330px]",
         });
 
         const filmCover = generateElement({
-            tag: "img",
-            src: film.images,
-            className: "min-h-0 rounded-md shadow-md",
-            alt: "Ini gambar"
-        })
+          tag: "img",
+          src: film.images,
+          className: "min-h-0 rounded-md shadow-md",
+          alt: "Ini gambar",
+        });
 
-        containerCard.appendChild(...[cover, containerImage, filmCover]);
+        // Masukan gambar ke dalam pembungkus nya
+        containerImage.append(filmCover);
+        // Masukan pembungkus gambar ke dalam anchor
+        cover.append(containerImage);
 
-        containerFilm.appendChild(...[containerTitle, containerCard])
-
-        listFilm.appendChild(containerFilm)
-
+        containerCard.append(...[cover, containerTitle]);
+        listFilm.append(containerCard);
 
         /**
          * Tugas mu sekarang buat untuk bagian anchor nya yang ini
@@ -124,7 +120,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         /**
          * Lalu jika kamu mau gambar nya berubah mengikuti data nya ya
          * tinggal ganti aja src nya dengan data dari film nya
-         * contoh: `src: film.cover` pas createElement nya 
+         * contoh: `src: film.cover` pas createElement nya
          */
       });
 
