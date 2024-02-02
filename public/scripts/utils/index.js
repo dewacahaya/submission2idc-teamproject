@@ -1,22 +1,32 @@
 export function generateRandomNumber(min = 1, max = 20) {
-    const randomNumber = Math.floor(Math.random() * max);
-  
-    return randomNumber + min;
-  }
-  
-  export function generateElement({ tag, id, className, value, elementHTML }) {
-    const element = document.createElement(tag);
-  
-    if (id) element.id = id;
-    if (className) element.className = className;
-    if (value) element.innerText = value;
-    if (elementHTML) element.innerHTML = elementHTML;
-  
-    return element;
-  }
-  
-  export const Icon = {
-    update: `
+  const randomNumber = Math.floor(Math.random() * max);
+
+  return randomNumber + min;
+}
+
+export function generateElement({
+  tag,
+  id,
+  className,
+  value,
+  elementHTML,
+  href,
+  src,
+}) {
+  const element = document.createElement(tag);
+
+  if (id) element.id = id;
+  if (className) element.className = className;
+  if (value) element.innerText = value;
+  if (elementHTML) element.innerHTML = elementHTML;
+  if (tag === "a") element.href = href;
+  if (tag === "img") element.src = src;
+
+  return element;
+}
+
+export const Icon = {
+  update: `
     <svg
       xmlns="http://www.w3.org/2000/svg"
       class="icon icon-tabler icon-tabler-pencil"
@@ -36,7 +46,7 @@ export function generateRandomNumber(min = 1, max = 20) {
       <path d="M13.5 6.5l4 4" />
     </svg>
     `,
-    delete: `
+  delete: `
     <svg
       xmlns="http://www.w3.org/2000/svg"
       class="icon icon-tabler icon-tabler-trash"
@@ -57,5 +67,4 @@ export function generateRandomNumber(min = 1, max = 20) {
       <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
     </svg>
     `,
-  };
-  
+};
