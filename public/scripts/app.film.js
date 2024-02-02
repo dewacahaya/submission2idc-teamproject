@@ -6,7 +6,7 @@ const judul = document.querySelector("#title-film");
 const tahunRilis = document.querySelector("#year-film");
 
 // ID yang kamu tambahkan di index.html sebagai pembungkus list film nya masukan disini
-const listFilm = document.getElementById(""); // Masukan disini ID nya
+const listFilm = document.getElementById("list_film"); // Masukan disini ID nya
 
 document.addEventListener("DOMContentLoaded", async () => {
   // Buatkan sebuah fungsi yang akan mengambil data film berdasarkan id yang diinginkan
@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       console.error("Error nich : ", { error });
     }
   };
+  handleGetFilmById();
 
   // Buatkan sebuah fungsi yang akan mengambil data film semua
   const handleGetFilms = async () => {
@@ -34,6 +35,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       if (!response) return;
 
+      listFilm.innerHTML = "";
       // Karna response nya itu bentuk array maka lakukan perulangan untuk menampilkan semua film nya
       response?.forEach((film) => {
         // BENTUK FILM CARD supaya bisa di tampilkan di halaman web
@@ -41,6 +43,12 @@ document.addEventListener("DOMContentLoaded", async () => {
         /**
          * Buat pembungkus nya
          */
+        const containerFilm = generateElement({
+            tag: "div",
+            id: "list_film",
+            className: "lg:container block justify-center py-4 px-4 md:flex"
+        });
+
         const containerCard = generateElement({
           tag: "div",
           className: "w-full self-center py-4 px-4 lg:w-1/3",
@@ -69,6 +77,31 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         // Masukan judul dan tahun rilis ke dalam pembungkus nya
         containerTitle.appendChild(...[title, year]);
+
+
+        const cover = generateElement({
+            tag: "a",
+            href: "/public/pages/detail.html",
+        });
+
+        const containerImage = generateElement({
+            tag: "div",
+            id: "recomen-film",
+            className: "w-[170px] h-[220px] mx-auto flex mb-2 lg:w-[240px] lg:h-[330px]",
+        });
+
+        const filmCover = generateElement({
+            tag: "img",
+            src: film.images,
+            className: "min-h-0 rounded-md shadow-md",
+            alt: "Ini gambar"
+        })
+
+        containerCard.appendChild(...[cover, containerImage, filmCover]);
+
+        containerFilm.appendChild(...[containerTitle, containerCard])
+
+        listFilm.appendChild(containerFilm)
 
 
         /**
