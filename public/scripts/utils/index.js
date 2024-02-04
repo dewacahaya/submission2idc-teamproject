@@ -68,24 +68,3 @@ export const Icon = {
     </svg>
     `,
 };
-
-// export const Details = {
-//   content: `
-  
-//   <p>Title : <span id="filmtitle">${title}</span></p>
-//   <p>Release : <span id="filmrelease"></span></p>
-//   <p>Duration : <span id="filmduration"></span></p>
-//   <p>Genre : <span id="filmgenre"></span></p>
-//   <p>Director : <span id="filmdirector"></span></p>
-//   <p>Writer : <span id="filmwriter"></span></p>
-//   <p>Casts : <span id="filmcasts"></span></p>
-//   <p class="mb-3">Language : <span id="filmlang"></span></p>
-//   <div class="flex justify-center px-4 py-4 mb-2">
-//     <a
-//       class="text-base font-medium text-slate-950 bg-[#F8B319] px-12 py-3 rounded-full hover:shadow-lg hover:bg-orange-500 transition duration-300 ease-in-out lg:px-20 lg:py-3"
-//       >Watch</a
-//     >
-//   </div>
-  
-//   `,
-// };

@@ -1,9 +1,18 @@
 import { getFilmById, getFilms } from "./api.js";
 import { generateRandomNumber, generateElement } from "./utils/index.js";
 
+const topTitle = document.getElementById("top-title")
 const filmCover = document.getElementById("recomen-film");
-const judul = document.querySelector("#title-film");
-const tahunRilis = document.querySelector("#year-film");
+const judul = document.querySelector("#filmtitle");
+const tahunRilis = document.querySelector("#filmrelease");
+const filmDur = document.getElementById("filmduration");
+const filmGenre = document.getElementById("filmgenre")
+const filmDirector = document.getElementById("filmdirector")
+const writer = document.getElementById("filmwriter")
+const casts = document.getElementById("filmcasts")
+const language = document.getElementById("filmlang")
+const desc = document.getElementById("filmdesc")
+const rate = document.getElementById("rating")
 
 // ID yang kamu tambahkan di index.html sebagai pembungkus list film nya masukan disini
 const listFilm = document.getElementById("list_film");
@@ -13,14 +22,36 @@ document.addEventListener("DOMContentLoaded", async () => {
   // Buatkan sebuah fungsi yang akan mengambil data film berdasarkan id yang diinginkan
   const handleGetFilmById = async (id = 1) => {
     try {
-      const response = await getFilmById(1);
+      const response = await getFilmById({id});
       console.log(response);
 
       if (!response) return;
 
-      // judul.innerText = response.title || "wait";
+      topTitle.innerText = response.title
 
-      // tahunRilis.innerText = response.year || "wait";
+      filmCover.src =  response.images
+
+      judul.innerText = response.title || "wait";
+
+      tahunRilis.innerText = response.year || "wait";
+
+      filmDur.innerText = response.runtime +"minute"
+
+      filmGenre.innerText = response.genre
+
+      filmDirector.innerText = response.director
+
+      writer.innerText = response.writer
+
+      casts.innerText = response.cast
+
+      language.innerText = response.language
+
+      desc.innerText = response.description
+
+      rate.innerText = response.rating
+
+
 
       // console.log({ response });
     } catch (error) {
@@ -83,7 +114,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         // Buat judul film nya
         const title = generateElement({
           tag: "h3",
-          id: "title-film",
+          id: "filmtitle",
           value: film.title,
           className: "flex justify-center text-white lg:text-2xl",
         });
@@ -91,7 +122,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         // Buat tahun rilis film nya
         const year = generateElement({
           tag: "p",
-          id: "year-film",
+          id: "filmrelease",
           value: film.year,
           className: "flex justify-center text-xs text-white lg:text-sm",
         });
@@ -213,14 +244,69 @@ document.addEventListener("DOMContentLoaded", async () => {
         const wrapperContent = generateElement({
           tag: "div",
           id: "detail-wrapper",
-          className: "px-4 py-4 font-poppins font-medium text-base text-white lg:text-xl md:w-1/3",
+          className: "px-4 py-4 font-poppins font-medium text-base text-white lg:text-xl md:w-1/2",
         });
 
         
+        const Content = {
+          content: `
+              <p>Title : <span id="filmtitle">${detail.title}</span></p>
+              <p>Release : <span id="filmrelease">${detail.release}</span></p>
+              <p>Duration : <span id="filmduration">${detail.runtime+"minute"}</span></p>
+              <p>Genre : <span id="filmgenre">${detail.genre}</span></p>
+              <p>Director : <span id="filmdirector">${detail.director}</span></p>
+              <p>Writer : <span id="filmwriter">${detail.writer}</span></p>
+              <p>Casts : <span id="filmcasts">${detail.cast}</span></p>
+              <p class="mb-3">Language : <span id="filmlang">${detail.language}</span></p>
+              <div class="flex justify-center px-4 py-4 mb-2">
+                <a
+                  class="text-base font-medium text-slate-950 bg-[#F8B319] px-12 py-3 rounded-full hover:shadow-lg hover:bg-orange-500 transition duration-300 ease-in-out lg:px-20 lg:py-3"
+                  >Watch</a
+                >
+              </div>
+        `
+      };
+
+        wrapperContent.append(Content.content);
+        detailWrapper.append(wrapperContent)
+
+        const descCon = generateElement({
+          tag: "div",
+          className: "flex w-full",
+        })
+
+        const box = generateElement({
+          tag: "div",
+          className: "font-poppins text-base text-fontwhite-0 lg:text-lg",
+        })
+
+        const descFilm = generateElement({
+          tag: "p",
+          id: "filmdesc",
+          value: detail.description,
+          className: "text-justify px-4 py-4",
+        })
+
+        const rateIcon = generateElement({
+          tag: "div",
+          className: "flex justify-center px-4 py-4 mb-2",
+        })
+
+        const filmRate = generateElement({
+          tag: "p",
+          id: "rating",
+          value: detail.rate,
+          className: "text-base font-medium text-slate-950 bg-[#F8B319] px-12 py-3 rounded-full hover:shadow-lg hover:bg-orange-500 transition duration-300 ease-in-out lg:px-20 lg:py-3",
+        })
+
+        rateIcon.append(filmRate)
+        box.append(...[descFilm, rateIcon])
+        descCon.append(box)
         // elemen image dan detail
 
-        detailFilmCard.append(imageCard)
+        detailFilmCard.append(...[imageCard, detailWrapper, descCon])
         cardDetail.append(...[topTitleCon, detailFilmCard])
+        containerDetail.append(cardDetail)
       })
 
 
