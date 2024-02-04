@@ -6,7 +6,8 @@ const judul = document.querySelector("#title-film");
 const tahunRilis = document.querySelector("#year-film");
 
 // ID yang kamu tambahkan di index.html sebagai pembungkus list film nya masukan disini
-const listFilm = document.getElementById("list_film"); // Masukan disini ID nya
+const listFilm = document.getElementById("list_film");
+const containerDetail = document.getElementById("main-container") // Masukan disini ID nya
 
 document.addEventListener("DOMContentLoaded", async () => {
   // Buatkan sebuah fungsi yang akan mengambil data film berdasarkan id yang diinginkan
@@ -17,9 +18,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       if (!response) return;
 
-      judul.innerText = response.title || "wait";
+      // judul.innerText = response.title || "wait";
 
-      tahunRilis.innerHTML = response.year || "wait";
+      // tahunRilis.innerText = response.year || "wait";
 
       // console.log({ response });
     } catch (error) {
@@ -46,32 +47,14 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         const containerCard = generateElement({
           tag: "div",
-          className: "w-full self-center py-4 px-4 lg:w-1/3",
+          className: "w-full self-center text-white py-4 px-4 lg:w-1/3",
         });
 
         // Buat pembungkus untuk judul dan tahun rilis
         const containerTitle = generateElement({
           tag: "div",
+          className: "text-white"
         });
-
-        // Buat judul film nya
-        const title = generateElement({
-          tag: "h3",
-          innerText: film.title,
-          id: "title-film",
-          className: "flex justify-center text-white lg:text-2xl",
-        });
-
-        // Buat tahun rilis film nya
-        const year = generateElement({
-          tag: "p",
-          id: "year-film",
-          innerText: film.year,
-          className: "flex justify-center text-xs text-white lg:text-sm",
-        });
-
-        // Masukan judul dan tahun rilis ke dalam pembungkus nya
-        containerTitle.appendChild(...[title, year]);
 
         const cover = generateElement({
           tag: "a",
@@ -88,17 +71,38 @@ document.addEventListener("DOMContentLoaded", async () => {
         const filmCover = generateElement({
           tag: "img",
           src: film.images,
-          className: "min-h-0 rounded-md shadow-md",
+          className: "min-h-0 min-w-0 w-full rounded-md shadow-md",
           alt: "Ini gambar",
         });
 
         // Masukan gambar ke dalam pembungkus nya
         containerImage.append(filmCover);
-        // Masukan pembungkus gambar ke dalam anchor
-        cover.append(containerImage);
+       
+        
 
-        containerCard.append(...[cover, containerTitle]);
-        listFilm.append(containerCard);
+        // Buat judul film nya
+        const title = generateElement({
+          tag: "h3",
+          id: "title-film",
+          value: film.title,
+          className: "flex justify-center text-white lg:text-2xl",
+        });
+
+        // Buat tahun rilis film nya
+        const year = generateElement({
+          tag: "p",
+          id: "year-film",
+          value: film.year,
+          className: "flex justify-center text-xs text-white lg:text-sm",
+        });
+
+        // Masukan judul dan tahun rilis ke dalam pembungkus nya
+        containerTitle.append(...[title, year]);
+         // Masukan pembungkus gambar ke dalam anchor
+        cover.append(...[containerImage, containerTitle]);
+
+        containerCard.append(cover);
+        listFilm.appendChild(containerCard);
 
         /**
          * Tugas mu sekarang buat untuk bagian anchor nya yang ini
@@ -132,4 +136,99 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // Panggil fungsi handleGetFilms nya
   handleGetFilms();
+
+  async function handleFilmDetail(id) {
+    try {
+      const response = await getFilmById({id})
+      console.log(response)
+
+      if (!response) return;
+
+      containerDetail.classList.add("pt-24 lg:pt-[132px] lg:containe");
+      containerDetail.innerHTML = "";
+      response?.forEach((detail) => {
+
+        // pembungkus semuanya
+        const cardDetail = generateElement({
+          tag: "div",
+          className: "block pb-2 mb-5",
+        });
+        // pembungkus semuanya
+
+        // elemen top title
+        const topTitleCon = generateElement({
+          tag: "div",
+          className: "w-full self-center",
+        })
+
+        const topTitle = generateElement({
+          tag: "div",
+          className: "bg-[#17191F] text-center font-poppins text-white font-semibold p-2 mb-2",
+        })
+
+        const topFilmTitle = generateElement({
+          tag: "h3",
+          id: "top-title",
+          innerText: detail.title,
+        });
+
+        topTitle.append(topFilmTitle)
+        topTitleCon.append(topTitle)
+        // elemen top title
+
+        // elemen image dan detail
+        const detailFilmCard = generateElement({
+          tag: "div",
+          className: "lg:flex",
+        });
+
+        // pembungkus image
+        const imageCard = generateElement({
+          tag: "div",
+          className: "w-full self-center py-4 px-4 lg:w-1/3"
+        });
+
+        const filmImage = generateElement({
+          tag: "div",
+          id: "detail-image",
+          className: "w-[170px] h-[220px] mx-auto flex mb-2 lg:w-[270px] lg:h-[340px]",
+        });
+
+        const theImage = generateElement({
+          tag: "img",
+          src: detail.images,
+          className: "min-h-0 rounded-md shadow-md",
+          alt: "gambar",
+        });
+
+        filmImage.append(theImage);
+        imageCard.append(filmImage);
+        // pembungkus image
+
+        const detailWrapper = generateElement({
+          tag: "div",
+          className: "w-full self-center lg:w-10/12",
+        });
+
+        const wrapperContent = generateElement({
+          tag: "div",
+          id: "detail-wrapper",
+          className: "px-4 py-4 font-poppins font-medium text-base text-white lg:text-xl md:w-1/3",
+        });
+
+        
+        // elemen image dan detail
+
+        detailFilmCard.append(imageCard)
+        cardDetail.append(...[topTitleCon, detailFilmCard])
+      })
+
+
+      console.log({response})
+    } catch (error) {
+      
+    }
+  }
+  handleFilmDetail();
 });
+
