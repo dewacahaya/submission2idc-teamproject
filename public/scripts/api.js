@@ -56,7 +56,7 @@ export async function createFilm({ payload = payload }) {
   }
 }
 
-export async function updateFilmById({ id = 1, payload = undefined }) {
+export async function updateFilmById({ id = 1, payload = payload }) {
   try {
     const response = await fetch(`${BASE_URL}/film/${id}/edit`, {
       method: "PUT",
