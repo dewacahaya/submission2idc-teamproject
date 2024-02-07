@@ -1,6 +1,6 @@
 const BASE_URL = "http://128.199.167.159/v1/idc";
 
-export async function getFilmById({ id = 1 }) {
+export async function getFilmById({ id }){
   try {
     const response = await fetch(`${BASE_URL}/film/${id}`, {
       method: "GET",
@@ -37,7 +37,7 @@ export async function getFilms() {
   }
 }
 
-export async function createFilm({ payload = undefined }) {
+export async function createFilm({ payload = payload }) {
   try {
     const response = await fetch(`${BASE_URL}/film`, {
       method: "POST",

@@ -2,6 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+
+  #list_film {
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 16px;
+  }
+}
+
+@media (max-width: 1023px) {
+  #list_film {
+    flex-wrap: wrap;
+  }
+}
+
 .fixed-navbar {
   @apply fixed z-[999] text-white bg-black bg-opacity-60;
   backdrop-filter: blur(5px);
@@ -24,4 +41,12 @@
 
 .menus-active > span:nth-child(3) {
   @apply -rotate-45;
+}
+
+.button-submit-edit {
+  background-color: orange;
+  padding: 5px 30px;
+  border-radius: 50px;
+  color: black;
+  fontweight: bold;
 }
