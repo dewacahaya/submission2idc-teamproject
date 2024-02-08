@@ -73,6 +73,8 @@ async function handleDeleteFilm(id) {
       inputLang.value = result?.language;
       inputId.value = result?.id;
 
+      localStorage.setItem("filmId", String(result?.id));
+
       submitButton.classList.remove(...["bg-green-500", "text-black", "px-8", "py-2", "rounded-xl", "hover:bg-green-700", "duration-300", "transition-all"]);
       submitButton.classList.add("button-submit-edit");
 
@@ -88,10 +90,10 @@ async function handleDeleteFilm(id) {
 //   Fungsi untuk menambahkan data baru
   async function addNewFilm(payload) {
     try {
-      const result = await createFilm({payload: payload});
+      const result = await createFilm({payload});
       if (result?.code === 201) {
         alert("Berhasil")
-        
+
         inputCover.value = "";
         inputTitle.value = "";
         inputRelease.value = "";
@@ -262,16 +264,8 @@ function renderFilms(films) {
 }
 
 submitButton.addEventListener("click", async (e) => {
-    /**
-     * e.preventDefault() adalah untuk mencegah
-     * form mengirim data ke halaman lain
-     */
     e.preventDefault();
 
-    /**
-     * Kita akan mengambil data dari inputan
-     * Lalu value inputan tersebut akan kita masukkan ke dalam objek payload
-     */
     const payload = {
       year: inputRelease?.value || "",
       title: inputTitle?.value || "",
@@ -285,9 +279,9 @@ submitButton.addEventListener("click", async (e) => {
       cast: inputCast?.value || "",
       language: inputLang?.value || "",
     };
-
     if (inputId.value === "") {
       addNewFilm(payload);
+      
     } else {
       handleUpdateFilmById(inputId.value, payload);
     }
