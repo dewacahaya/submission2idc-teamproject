@@ -1,4 +1,5 @@
-const BASE_URL = "http://128.199.167.159/v1/idc";
+// const BASE_URL = "http://128.199.167.159/v1/idc";
+const BASE_URL = "https://fe-idc.xynnea.eu.org/v1/idc"
 
 export async function getFilmById({ id }){
   try {
