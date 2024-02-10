@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const handleGetFilmById = async (id) => {
     try {
       const response = await getFilmById({id});
-      console.log(response);
+    //   console.log(response);
 
       if (!response) return;
 
