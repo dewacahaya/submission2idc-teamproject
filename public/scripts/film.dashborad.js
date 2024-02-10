@@ -57,6 +57,10 @@ async function handleDeleteFilm(id) {
   async function handleShowFilmById(id) {
     try {
       const result = await getFilmById({ id });
+<<<<<<< HEAD
+=======
+      console.log(result);
+>>>>>>> 2f021e07a284610ba27b550fe40f80f89ac81b3b
       if (!result) return;
 
       inputCover.value = result?.images;
@@ -70,6 +74,12 @@ async function handleDeleteFilm(id) {
       inputWriter.value = result?.writer;
       inputCast.value = result?.cast;
       inputLang.value = result?.language;
+<<<<<<< HEAD
+=======
+      inputId.value = result?.id;
+
+      localStorage.setItem("filmId", String(result?.id));
+>>>>>>> 2f021e07a284610ba27b550fe40f80f89ac81b3b
 
       submitButton.classList.remove(...["bg-green-500", "text-black", "px-8", "py-2", "rounded-xl", "hover:bg-green-700", "duration-300", "transition-all"]);
       submitButton.classList.add("button-submit-edit");
@@ -86,10 +96,17 @@ async function handleDeleteFilm(id) {
 //   Fungsi untuk menambahkan data baru
   async function addNewFilm(payload) {
     try {
+<<<<<<< HEAD
       const result = await createFilm({payload: payload});
       if (result?.code === 201) {
         alert("Berhasil")
         
+=======
+      const result = await createFilm({payload});
+      if (result?.code === 201) {
+        alert("Berhasil")
+
+>>>>>>> 2f021e07a284610ba27b550fe40f80f89ac81b3b
         inputCover.value = "";
         inputTitle.value = "";
         inputRelease.value = "";
@@ -105,7 +122,10 @@ async function handleDeleteFilm(id) {
         window.location.reload()
 
       }
+<<<<<<< HEAD
       console.log(result)
+=======
+>>>>>>> 2f021e07a284610ba27b550fe40f80f89ac81b3b
   }catch(error){
     console.log("Ada error :", {
         error,
@@ -113,6 +133,10 @@ async function handleDeleteFilm(id) {
   }
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2f021e07a284610ba27b550fe40f80f89ac81b3b
 // Fungsi untuk mengupdate data
 async function handleUpdateFilmById(id, payload) {
     try {
@@ -146,14 +170,25 @@ async function handleFilms(){
         const searchKey = inputSearch.value.trim().toLowerCase();
         const filtered = filteredFilms.filter(
           (film) =>
+<<<<<<< HEAD
             film.title.toLowerCase().includes(searchKey) ||
             film.year.toLowerCase().includes(searchKey) ||
             film.genre.toLowerCase().includes(searchKey) ||
             film.language.toLowerCase().includes(searchKey)
+=======
+            film.title.toString().toLowerCase().includes(searchKey) ||
+            film.year.toString().toLowerCase().includes(searchKey) ||
+            film.genre.toString().toLowerCase().includes(searchKey) ||
+            film.language.toString().toLowerCase().includes(searchKey)
+>>>>>>> 2f021e07a284610ba27b550fe40f80f89ac81b3b
         );
 
         renderFilms(filtered)
         })
+<<<<<<< HEAD
+=======
+        // console.log(films)
+>>>>>>> 2f021e07a284610ba27b550fe40f80f89ac81b3b
 
         renderFilms(films)
     } catch (error) {
@@ -171,13 +206,21 @@ function renderFilms(films) {
         const filmContainer = generateElement({
             tag: "div",
             id: `film-${film?.id}`,
+<<<<<<< HEAD
             className: "w-11/12 mx-auto text-white flex items-center my-8 h-32 p-4 bg-slate-700 rounded-xl border border-red-300",
+=======
+            className: "w-11/12 mx-auto text-white flex items-center my-8 p-4 bg-slate-700 rounded-xl border border-red-300",
+>>>>>>> 2f021e07a284610ba27b550fe40f80f89ac81b3b
           });
     
           // Kita buat element pembungkus section kiri
           const leftSection = generateElement({
             tag: "div",
+<<<<<<< HEAD
             className: "block pr-10 w-full",
+=======
+            className: "block pr-10 w-full ",
+>>>>>>> 2f021e07a284610ba27b550fe40f80f89ac81b3b
           });
     
           // Buat element h4 untuk menampilkan pertanyaan
@@ -204,7 +247,11 @@ function renderFilms(films) {
           const langElement = generateElement({
             tag: "p",
             id: "filmlang",
+<<<<<<< HEAD
             className: "w-full",
+=======
+            className: "w-1/2",
+>>>>>>> 2f021e07a284610ba27b550fe40f80f89ac81b3b
             value: film.language,
           })
     
@@ -214,7 +261,11 @@ function renderFilms(films) {
           // Dan kita buat element pembungkus section kanan
           const rightSection = generateElement({
             tag: "div",
+<<<<<<< HEAD
             className: "block pl-10 w-1/2 block",
+=======
+            className: "block pl-10 w-1/3 block",
+>>>>>>> 2f021e07a284610ba27b550fe40f80f89ac81b3b
           });
     
           // Buat element button untuk edit
@@ -259,6 +310,7 @@ function renderFilms(films) {
 }
 
 submitButton.addEventListener("click", async (e) => {
+<<<<<<< HEAD
     /**
      * e.preventDefault() adalah untuk mencegah
      * form mengirim data ke halaman lain
@@ -269,6 +321,10 @@ submitButton.addEventListener("click", async (e) => {
      * Kita akan mengambil data dari inputan
      * Lalu value inputan tersebut akan kita masukkan ke dalam objek payload
      */
+=======
+    e.preventDefault();
+
+>>>>>>> 2f021e07a284610ba27b550fe40f80f89ac81b3b
     const payload = {
       year: inputRelease?.value || "",
       title: inputTitle?.value || "",
@@ -282,9 +338,15 @@ submitButton.addEventListener("click", async (e) => {
       cast: inputCast?.value || "",
       language: inputLang?.value || "",
     };
+<<<<<<< HEAD
 
     if (inputId.value === "") {
       addNewFilm(payload);
+=======
+    if (inputId.value === "") {
+      addNewFilm(payload);
+      
+>>>>>>> 2f021e07a284610ba27b550fe40f80f89ac81b3b
     } else {
       handleUpdateFilmById(inputId.value, payload);
     }
