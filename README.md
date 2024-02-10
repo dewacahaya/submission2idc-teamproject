@@ -25,4 +25,4 @@ Simpan perubahan tersebut dan jalankan ulang website.
 ## Alternatif
 Anda juga dapat mengakses website melalui link berikut setelah di-hosting:
 
-<a href="nowfilms.vercel.app">Link Website</a>
+<a href="https://nowfilms.vercel.app">Link Website</a>
