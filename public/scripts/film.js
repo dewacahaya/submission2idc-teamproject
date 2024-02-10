@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         const cover = generateElement({
           tag: "a",
-          href: '/public/pages/detail.html',
+          href: '../pages/detail.html',
         });
 
         cover.addEventListener("click", () => {
